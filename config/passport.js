@@ -62,6 +62,12 @@ module.exports = function(passport) {
                 newUser.email       = email;
                 newUser.dateOfBirth = req.body.date;
                 newUser.password    = newUser.generateHash(password); // use the generateHash function in our user model
+                newUser.data.starfslokAldur      = 67;
+                newUser.data.innistaedurLok      = 1000000;
+                newUser.data.manadarlegFjarthorf = 500000;
+                newUser.data.raunavoxtunfram     = 2;
+                newUser.data.skatturfram         = 40;
+                newUser.data.personuafslattur    = 55000;
 
 				// save the user
                 newUser.save(function(err) {
