@@ -19,12 +19,14 @@ module.exports = function(app, passport) {
 		res.render('login.ejs', { message: req.flash('loginMessage') });
 	});
 
+	//Get data for the current user to fill in tables
 	app.get('/dashboard', isLoggedIn, function(req, res) {
 		User.findOne({ 'email': req.user.email }, function(err, user){
 			res.render('dashboard.ejs', { message: req.flash('dashboardMessage'), data: user});
 		});
 	});
 
+	//Post data that user changed in dashboard
 	app.post('/dashboard', isLoggedIn, function(req, res) {
 		User.findOne({ 'email': req.user.email }, function(err, user){
 			if(err) throw err;
@@ -40,6 +42,47 @@ module.exports = function(app, passport) {
 
 				res.render('dashboard.ejs', { message: req.flash('dashboardMessage'), data: updatedUser });	
 			})
+		});
+	});
+
+	//Get sameign
+	app.get('/sameign', isLoggedIn, function(req, res) {
+		User.findOne({ 'email': req.user.email }, function(err, user){
+			res.render('sameign.ejs', { message: req.flash('dashboardMessage'), data: user});
+		});
+	});
+
+	//Get sereign
+	app.get('/sereign', isLoggedIn, function(req, res) {
+		User.findOne({ 'email': req.user.email }, function(err, user){
+			res.render('sereign.ejs', { message: req.flash('dashboardMessage'), data: user});
+		});
+	});
+
+	app.get('/sereignAdd', isLoggedIn, function(req, res) {
+		User.findOne({ 'email': req.user.email }, function(err, user){
+			if(err) throw err;
+			
+			res.render('components/sereignAdd.ejs', { message: req.flash('dashboardMessage'), data: user});
+		});
+	});
+
+	app.post('/sereignAdd', isLoggedIn, function (req, res) { 
+		User.findOne({ 'email': req.user.email }, function(err, user){
+			if(err) throw err;
+			var newSereign = {
+				name            : req.body.name,
+				eignNu          : req.body.eignNu,
+				innleggMan      : req.body.innleggMan,
+				utgreidslahefst : req.body.utgreidslahefst,
+				utgreidslutimi  : req.body.utgreidslutimi
+			};
+			user.sereign.push(newSereign);
+			user.save(function(err, updatedUser){
+				if(err) throw err;
+			
+				res.render('sereign.ejs', {message: req.flash('dashboardMessage'), data: user});
+			});
 		});
 	});
 

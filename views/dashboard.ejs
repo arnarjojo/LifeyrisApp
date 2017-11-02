@@ -49,11 +49,35 @@
                 <label>Persónuafsláttur</label>
                 <input type="number" class="form-control" name="personuafslattur" value=<%= data.data.personuafslattur %> >
             </div>
-            <button type="submit" class="btn btn-warning btn-lg">Vista</button>
+            <button type="submit" class="btn btn-success btn-lg">Vista</button>
         </form>
+
     </div>
-
-
+    <hr>
+    <h2><span class="fa fa-money"></span> Mánaðarlegar útgreiðslur</h2>
+    <table class="table table-striped">
+        <thead>
+          <tr>
+            <th>Aldur</th>
+            <th>Séreign</th>
+            <th>Sameign</th>
+            <th>Samtals</th>
+            <th>Skattur</th>
+            <th>Nettó</th>
+            <th>Viðbót úr sjóði</th>
+            <th>Ráðstöfunarfé</th>
+            <th>Staða sjóðs</th>
+          </tr>
+        </thead>
+        <tbody>
+            <tr>
+                <td><%= data.data.starfslokAldur %></td>
+                <td><%= data.sereign.name %></td>
+                <td><%= data.sameign.name %></td>
+                <td><%= data.sereign.name %> </td>
+            </tr>
+        </tbody>
+    </table>
 	<hr>
 
 </div>

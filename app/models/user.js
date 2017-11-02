@@ -17,12 +17,19 @@ var userSchema = new mongoose.Schema({
         skatturfram         : Number,
         personuafslattur    : Number
     },
-    sameign: {
-        name      : String
-    },
-    sereign: {
-        name      : String
-    }
+    sameign: [{
+        name                     : String,
+        aunninRetturMan          : Number,
+        manadarRettindaavinnsla  : Number,
+        utgreidsluAldur          : Number
+    }],
+    sereign: [{
+        name            : String,
+        eignNu          : Number,
+        innleggMan      : Number,
+        utgreidslahefst : Number,
+        utgreidslutimi  : Number
+    }]
 });
 
 // methods ======================

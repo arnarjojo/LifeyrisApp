@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+<head>
+	<title>LífeyrisApp</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+    <link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+    <link 
+</head>
+<body>
+<%- include partial/header.ejs %> 
+<%- include partial/sidebar.ejs %> 
+<div class="container">
+    <h1><span class="fa fa-money"></span> Séreign</h1>
+    <a href="\sereignAdd" class="btn btn-success">+</a>
+    <br>
+
+    <table class="table table-striped">
+        <thead>
+            <tr>
+                <th scope="row">Nafn</th>
+                <th>Eign nú</th>
+                <th>Innlegg mánaðarlega</th>
+                <th>Útgreiðsla hefst við aldur</th>
+                <th>Útgreiðslutími</th>
+                <th>Eign við starfslok</th>
+                <th>Eign við upphaf útgreiðslu</th>
+                <th>Starfslok dagsetning</th>
+                <th>Fyrsta útgreiðsla dagsetning</th>
+                <th>Árafjöldi til starfsloka</th>
+                <th>Árafjöldi til upphafs útgreiðslu</th>
+            </tr>
+        </thead>
+        <tbody>    
+            <% for(var i = 0; i < data.sereign.length; i++) { %>
+                <tr>
+                    <th scope="row"><%= data.sereign[i].name %></th>
+                    <td><%= data.sereign[i].eignNu %></td>
+                    <td><%= data.sereign[i].innleggMan %></td>
+                    <td><%= data.sereign[i].utgreidslahefst %></td>
+                    <td><%= data.sereign[i].utgreidslutimi %></td>
+                </tr>
+            <% } %>
+        </tbody>
+    </table>
+    <hr>
+</div>
+</body>
+
+</html>

@@ -1,0 +1,38 @@
+<!doctype html>
+<html>
+<head>
+	<title>LífeyrisApp</title>
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/bootstrap/3.0.2/css/bootstrap.min.css"> <!-- load bootstrap css -->
+	<link rel="stylesheet" href="//netdna.bootstrapcdn.com/font-awesome/4.0.3/css/font-awesome.min.css"> <!-- load fontawesome -->
+</head>
+<body>
+<%- include ../partial/header.ejs %> 
+<%- include ../partial/sidebar.ejs %> 
+    <div class="container">
+        <form action="/sereignAdd" method="post">
+            <div class="form-group">
+                <label>Nafn sjóðar</label>
+                <input type="text" class="form-control" name="name">
+            </div>
+            <div class="form-group">
+                <label>Núverandi eign</label>
+                <input type="number" class="form-control" name="eignNu">
+            </div>
+            <div class="form-group">
+                <label>Innlegg mánaðarlega</label>
+                <input type="number" class="form-control" name="innleggMan">
+            </div>
+            <div class="form-group">
+                <label>Útgreiðsla hefst við aldur</label>
+                <input type="number" class="form-control" name="utgreidslahefst">
+            </div>
+            <div class="form-group">
+                <label>Útgreiðslutími</label>
+                <input type="number" class="form-control" name="utgreidslutimi">
+            </div>
+
+            <button type="submit" class="btn btn-success btn-lg">Bæta við</button>
+        </form>
+    </div>
+</body>
+</html>
